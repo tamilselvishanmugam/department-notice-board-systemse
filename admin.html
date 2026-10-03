@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Admin - Department Notice Board System</title>
-<link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - Department Notice Board System</title>
+
+  <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
   <header class="navbar">
@@ -16,6 +18,7 @@
         <p class="tagline">Admin Panel</p>
       </div>
     </div>
+
     <nav>
       <a href="index.html">Home</a>
       <a href="admin.html" class="active">Admin Login</a>
@@ -27,42 +30,86 @@
     <!-- LOGIN SECTION -->
     <section id="loginSection" class="card login-card">
       <h2>Admin Login</h2>
-      <p class="hint">Demo credentials — Username: <b>admin</b> &nbsp; Password: <b>admin123</b></p>
+
+      <p class="hint">
+        Demo credentials — Username:
+        <b>admin</b>
+        &nbsp;
+        Password:
+        <b>admin123</b>
+      </p>
+
       <form id="loginForm">
+
         <div class="field">
           <label for="username">Username</label>
-          <input type="text" id="username" required autocomplete="username">
+          <input
+            type="text"
+            id="username"
+            required
+            autocomplete="username"
+          >
         </div>
+
         <div class="field">
           <label for="password">Password</label>
-          <input type="password" id="password" required autocomplete="current-password">
+          <input
+            type="password"
+            id="password"
+            required
+            autocomplete="current-password"
+          >
         </div>
+
         <p id="loginError" class="error-msg"></p>
-        <button type="submit" class="btn-primary">Login</button>
+
+        <button type="submit" class="btn-primary">
+          Login
+        </button>
+
       </form>
     </section>
+
 
     <!-- DASHBOARD SECTION -->
     <section id="dashboardSection" class="hidden">
 
       <div class="dash-header">
         <h2>Manage Notices</h2>
-        <button id="logoutBtn" class="btn-secondary">Logout</button>
+
+        <button id="logoutBtn" class="btn-secondary">
+          Logout
+        </button>
       </div>
 
+
+      <!-- ADD NOTICE FORM -->
       <div class="card form-card">
+
         <h3 id="formTitle">Add New Notice</h3>
+
         <form id="noticeForm">
+
           <input type="hidden" id="noticeId">
+
 
           <div class="field">
             <label for="title">Title *</label>
-            <input type="text" id="title" required maxlength="120">
+
+            <input
+              type="text"
+              id="title"
+              required
+              maxlength="120"
+            >
           </div>
 
+
           <div class="row">
+
             <div class="field">
               <label for="department">Department *</label>
+
               <select id="department" required>
                 <option value="CSE">Computer Science (CSE)</option>
                 <option value="ECE">Electronics (ECE)</option>
@@ -74,8 +121,10 @@
               </select>
             </div>
 
+
             <div class="field">
               <label for="priority">Priority *</label>
+
               <select id="priority" required>
                 <option value="High">High</option>
                 <option value="Medium" selected>Medium</option>
@@ -83,32 +132,81 @@
               </select>
             </div>
 
+
             <div class="field">
               <label for="expiryDate">Expiry Date</label>
-              <input type="date" id="expiryDate">
+
+              <input
+                type="date"
+                id="expiryDate"
+              >
             </div>
+
           </div>
+
 
           <div class="field">
             <label for="content">Notice Content *</label>
-            <textarea id="content" rows="4" required maxlength="1000"></textarea>
+
+            <textarea
+              id="content"
+              rows="4"
+              required
+              maxlength="1000"
+            ></textarea>
           </div>
+
 
           <div class="field">
-            <label for="attachmentUrl">Attachment Link (optional URL)</label>
-            <input type="url" id="attachmentUrl" placeholder="https://...">
+            <label for="attachmentUrl">
+              Attachment Link (optional URL)
+            </label>
+
+            <input
+              type="url"
+              id="attachmentUrl"
+              placeholder="https://..."
+            >
           </div>
 
+
           <div class="btn-row">
-            <button type="submit" class="btn-primary" id="submitBtn">Publish Notice</button>
-            <button type="button" id="cancelEditBtn" class="btn-secondary hidden">Cancel Edit</button>
+
+            <button
+              type="submit"
+              class="btn-primary"
+              id="submitBtn"
+            >
+              Publish Notice
+            </button>
+
+            <button
+              type="button"
+              id="cancelEditBtn"
+              class="btn-secondary hidden"
+            >
+              Cancel Edit
+            </button>
+
           </div>
+
         </form>
       </div>
 
+
+      <!-- ALL NOTICES -->
       <div class="card">
-        <h3>All Notices (<span id="noticeCount">0</span>)</h3>
-        <table id="noticeTable" class="notice-table">
+
+        <h3>
+          All Notices
+          (<span id="noticeCount">0</span>)
+        </h3>
+
+        <table
+          id="noticeTable"
+          class="notice-table"
+        >
+
           <thead>
             <tr>
               <th>Title</th>
@@ -119,19 +217,37 @@
               <th>Actions</th>
             </tr>
           </thead>
+
           <tbody id="noticeTableBody"></tbody>
+
         </table>
-        <p id="noNotices" class="empty-state" style="display:none;">No notices added yet.</p>
+
+        <p
+          id="noNotices"
+          class="empty-state"
+          style="display:none;"
+        >
+          No notices added yet.
+        </p>
+
       </div>
 
     </section>
 
   </main>
 
+
   <footer>
-    <p>&copy; <span id="year"></span> Department Notice Board System</p>
+    <p>
+      &copy;
+      <span id="year"></span>
+      Department Notice Board System
+    </p>
   </footer>
 
-<script src="js/app.js"></script>
+
+  <!-- JavaScript -->
+  <script src="js/app.js"></script>
+
 </body>
 </html>
